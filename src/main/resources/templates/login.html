@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>чл</title>
+</head>
+<body>
+    <form method = "post" th:action="@{/shop/login}" th:object="${userAuthDTO}">
+        <label for="email">Введите ваше имя:</label>
+        <input type="text" name="username" id="email"/>
+    <!--    <div style="color:red" th:if="${#fields.hasErrors('email')}" th:errors="*{email}">Ошибка в логине</div>-->
+        <br/>
+        <label for="password">Введите ваш пароль:</label>
+        <input type="text" name="password" id="password"/>
+        <br/>
+        <input type="submit" value="Войти!"/>
+    <!--    <div style="color:red" th:if="${#fields.hasErrors('password')}" th:errors="*{password}">Ошибка в пароле</div>-->
+    </form>
+    <a href="/shop/registration">Регистрация</a>
+</body>
+</html>
