@@ -2,6 +2,9 @@ package onlineshop.service;
 
 import onlineshop.model.User;
 
-public interface UserLabel {
-    String getUserNameLabel(User user);
+public interface UserLabelView {
+    String getUserNameLabel();
+    String getUserEmailLabel();
+    String getUserRoleLabel();
+    void setUser(User user);
 }

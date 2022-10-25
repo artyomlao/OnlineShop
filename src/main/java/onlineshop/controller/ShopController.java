@@ -2,16 +2,18 @@ package onlineshop.controller;
 
 import onlineshop.dto.UserRegDTO;
 import onlineshop.model.User;
+import onlineshop.service.UserLabelView;
 import onlineshop.service.UserService;
+import onlineshop.service.ConversionView;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.beans.factory.annotation.Value;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.authentication.AnonymousAuthenticationToken;
 import org.springframework.security.authentication.AuthenticationManager;
-import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.security.core.Authentication;
+import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
 import org.springframework.validation.FieldError;
 import org.springframework.web.bind.annotation.*;
@@ -51,6 +53,18 @@ public class ShopController {
     @GetMapping("/registration")
     public String getRegistration() {
         return "registration";
+    }
+
+    @GetMapping("/account")
+    public String accountPage(Model model) {
+        String email = SecurityContextHolder.getContext().getAuthentication().getName();
+        User user = userService.getUserByEmail(email);
+
+        UserLabelView userLabelView = new ConversionView();
+        userLabelView.setUser(user);
+        model.addAttribute("userLabelView", userLabelView);
+
+        return "account";
     }
 
     @PostMapping("/registration")

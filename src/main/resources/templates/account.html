@@ -1,10 +1,15 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" xmlns:th="http://thymeleaf.org">
 <head>
-  <meta charset="UTF-8">
-  <title>$Title$</title>
+    <meta charset="UTF-8">
+    <title>Account Info</title>
+    <link rel="stylesheet" href="/style.css">
 </head>
-<body>
-$END$
+<body th:style="'background:url('+ @{/back.jpg} +');'">
+    <div class="wrapper-account">
+        <p th:text="${userLabelView.getUserNameLabel()}">VALUE</p>
+        <p th:text="${userLabelView.getUserEmailLabel()}">VALUE</p>
+        <p th:text="${userLabelView.getUserRoleLabel()}">VALUE</p>
+    </div>
 </body>
 </html>

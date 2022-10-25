@@ -1,5 +1,5 @@
 body{
-    background: url("../pic/back.jpg");
+    /*background: url("[@{/back.jpg}]");*/
     background-repeat: no-repeat;
     background-size: cover;
 
@@ -31,10 +31,25 @@ a {
     color: #555;
 }
 
-.wrapper{
-    width:1600px;
-    margin:2% auto;
+.wrapper {
+    width: 1600px;
+    margin: 2% auto;
     padding : 10px;
+    border-radius : 20px;
+    background-color: rgba(0,0,0,0.23);
+    box-shadow: 0 0 17px rgb(25, 24, 24);
+}
+
+p {
+    font-size: 34px;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    color: rgb(255, 255, 255);
+}
+
+.wrapper-account{
+    width: 350px;
+    margin: 20% auto;
+    padding: 10px;
     border-radius : 20px;
     background-color: rgba(0,0,0,0.23);
     box-shadow: 0 0 17px rgb(25, 24, 24);

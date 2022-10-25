@@ -7,15 +7,20 @@ import onlineshop.model.User;
 import onlineshop.repository.UserRepository;
 import onlineshop.security.SecurityUtil;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.stereotype.Service;
 
 @Service
-public class UserService {
+public class UserService{
     private final UserRepository userRepository;
 
     @Autowired
     public UserService(UserRepository userRepository) {
         this.userRepository = userRepository;
+    }
+
+    public User getUserByEmail(String email) {
+        return userRepository.findByEmail(email).orElseThrow(() -> new UsernameNotFoundException("User wasn't found"));
     }
 
     public User registerUser(UserRegDTO userRegDTO) {
@@ -29,6 +34,8 @@ public class UserService {
 
         return userRepository.save(user);
     }
+
+
 
     public boolean matchPassword(UserRegDTO userRegDTO) {
         return userRegDTO.getPassword()
