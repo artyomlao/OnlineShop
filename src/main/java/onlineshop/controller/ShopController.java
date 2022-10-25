@@ -61,7 +61,7 @@ public class ShopController {
                     ("error", "matchingPassword", "Пароли не соответствуют"));
             return "registration";
         }
-        User user = userService.registerUser(userDTO);
+        userService.registerUser(userDTO);
 
         return "redirect:/shop/login";
     }
@@ -72,8 +72,8 @@ public class ShopController {
     }
 
     @GetMapping("/home")
-    public ResponseEntity<String> homePage(Authentication authentication) {
-        return new ResponseEntity<>("Here you are " + authentication.getName(), HttpStatus.OK);
+    public String homePage(Authentication authentication) {
+        return "home";
     }
 
     private boolean isAuthenticated(Authentication authentication) {
