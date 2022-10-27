@@ -17,7 +17,7 @@
     <br/>
     <label for="matchingPassword">Введите пароль ещё раз:</label>
     <input type="password" field="*{matchingPassword}" name="matchingPassword" id="matchingPassword"/>
-    <p th:if="${#fields.hasErrors('matchingPassword')}" th:errorclass="error" th:errors="*{matchingPassword}" />
+<!--    <p th:if="${#fields.hasErrors('matchingPassword')}" th:errorclass="error" th:errors="*{matchingPassword}" />-->
     <br/>
     <input type="submit" value="Зарегистрироваться!"/>
 </form>

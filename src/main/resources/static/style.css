@@ -2,7 +2,6 @@ body{
     /*background: url("[@{/back.jpg}]");*/
     background-repeat: no-repeat;
     background-size: cover;
-
 }
 
 nav{
@@ -31,6 +30,7 @@ a {
     color: #555;
 }
 
+
 .wrapper {
     width: 1600px;
     margin: 2% auto;
@@ -47,7 +47,7 @@ p {
 }
 
 .wrapper-account{
-    width: 350px;
+    width: 450px;
     margin: 20% auto;
     padding: 10px;
     border-radius : 20px;
@@ -59,4 +59,31 @@ p {
     display: flex;
     margin-top: 20%;
     margin-left: 45%;
+}
+
+.container {
+    max-width: 1080px;
+    margin: auto;
+    padding-left: 25px;
+    padding-right: 25px;
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    align-items: center;
+}
+
+.small-container {
+    flex-basis: 25%;
+    padding: 10px;
+    min-width: 200px;
+    margin-bottom: 50px;
+    align-items: center;
+    background-color: rgba(0,0,0,0.23);
+    box-shadow: 0 0 17px rgb(25, 24, 24);
+    border-radius : 15px;
+}
+
+.img-size {
+    width: 200px;
+    height: 250px;
 }

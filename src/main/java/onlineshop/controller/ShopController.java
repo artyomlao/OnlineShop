@@ -1,7 +1,9 @@
 package onlineshop.controller;
 
 import onlineshop.dto.UserRegDTO;
+import onlineshop.model.Product;
 import onlineshop.model.User;
+import onlineshop.service.ProductService;
 import onlineshop.service.UserLabelView;
 import onlineshop.service.UserService;
 import onlineshop.service.ConversionView;
@@ -19,6 +21,7 @@ import org.springframework.validation.FieldError;
 import org.springframework.web.bind.annotation.*;
 
 import javax.validation.Valid;
+import java.util.List;
 
 @Controller
 @RequestMapping("/shop")
@@ -53,6 +56,11 @@ public class ShopController {
     @GetMapping("/registration")
     public String getRegistration() {
         return "registration";
+    }
+
+    @GetMapping("/credits")
+    public String getCredits() {
+        return "credits";
     }
 
     @GetMapping("/account")

@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Products</title>
+    <link rel="stylesheet" th:href="@{/style.css}">
+</head>
+<body th:style="'background:url('+ @{/back.jpg} +');'">
+    <div class="wrapper">
+        <nav>
+            <ul>
+                <li><a href="/shop/home">Home</a></li>
+                <li><a href="/shop/products">Products</a></li>
+                <li><a href="/shop/account">Account</a></li>
+                <li><a href="/shop/credits">Credits</a></li>
+            </ul>
+        </nav>
+    </div>
+<!--    <div class="container">-->
+<!--        <div class="small-container">-->
+<!--            <img class="img-size" th:src="@{/laptop.png}">-->
+<!--            <p>Laptop</p>-->
+<!--        </div>-->
+<!--        <div class="small-container">-->
+<!--            <img class="img-size" th:src="@{/microwave.png}">-->
+<!--            <p>Microwave</p>-->
+<!--        </div>-->
+<!--        <div class="small-container">-->
+<!--            <img class="img-size" th:src="@{/phone.png}">-->
+<!--            <p>Phone</p>-->
+<!--        </div>-->
+<!--    </div>-->
+    <div th:each="product : ${products}" class="container">
+        <a th:href="@{/shop/products/{id}(id=${product.getId()})}">
+            <div class="small-container">
+                <img class="img-size" th:src="${product.getImagePath()}">
+                <p th:text="${product.getName()}"></p>
+                <p th:text="${product.getDescription()}"></p>
+                <p th:text="${product.getPrice()}"></p>
+            </div>
+        </a>
+    </div>
+</body>
+</html>
