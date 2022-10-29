@@ -3,9 +3,15 @@
 <head>
     <meta charset="UTF-8">
     <title>Product Item</title>
-    <link rel="stylesheet" th:src="@{/style.css}">
+    <link rel="stylesheet" th:href="@{/style.css}">
 </head>
 <body>
-
+    <div class="container">
+        <div class="small-container">
+            <p th:text="${product.getName()}"></p>
+            <p th:text="${product.getDescription()}"></p>
+            <img class="img-size" th:src="${product.getImagePath()}">
+        </div>
+    </div>
 </body>
 </html>

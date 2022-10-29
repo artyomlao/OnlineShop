@@ -1,6 +1,6 @@
 package onlineshop.dto;
 
-public class AddedProductDTO {
+public class OrderProductDTO {
     private int quantity;
 
     public int getQuantity() {

@@ -29,5 +29,5 @@ public class UserDetailsServiceImpl implements UserDetailsService {
                 orElseThrow(() -> new UsernameNotFoundException("Username wasn't found"));
 
         return SecurityUser.getUser(user);
-    } // TODO: authorities
+    }
 }

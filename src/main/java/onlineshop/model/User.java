@@ -1,9 +1,10 @@
 package onlineshop.model;
 
 import javax.persistence.*;
-import javax.persistence.criteria.CriteriaBuilder;
+import java.util.List;
 
 @Entity
+@Table(name = "user")
 public class User {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -25,6 +26,12 @@ public class User {
     @Enumerated(value = EnumType.STRING)
     @Column
     private Role role;
+
+    @OneToOne(mappedBy = "user", cascade = CascadeType.ALL)
+    private Cart cart;
+
+    @OneToMany(mappedBy = "user")
+    private List<OrderList> orderList;
 
     public Integer getId() {
         return id;
@@ -72,5 +79,21 @@ public class User {
 
     public void setRole(Role role) {
         this.role = role;
+    }
+
+    public Cart getCart() {
+        return cart;
+    }
+
+    public void setCart(Cart cart) {
+        this.cart = cart;
+    }
+
+    public List<OrderList> getOrder() {
+        return orderList;
+    }
+
+    public void setOrder(List<OrderList> orderList) {
+        this.orderList = orderList;
     }
 }

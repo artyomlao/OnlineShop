@@ -1,10 +1,43 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" xmlns:th="http://thymeleaf.org">
 <head>
-  <meta charset="UTF-8">
-  <title>$Title$</title>
+    <meta charset="UTF-8">
+    <title>Cart</title>
+    <link rel="stylesheet" th:href="@{/style.css}">
 </head>
 <body>
-$END$
+    <div class="wrapper">
+        <nav>
+            <ul>
+                <li><a href="/shop/home">Home</a></li>
+                <li><a href="/shop/products">Products</a></li>
+                <li><a href="/shop/account">Account</a></li>
+                <li><a href="/shop/credits">Credits</a></li>
+                <li>
+                    <a href="/shop/cart">
+                        <img th:src="@{/cart.png}" width="40px" height="40px">
+                    </a></li>
+            </ul>
+        </nav>
+    </div>
+    <div th:each="product : ${cartProducts}" class="container">
+        <a th:href="@{/shop/products/{id}(id=${product.getProduct().getId()})}">
+            <div class="small-container">
+                <img class="img-size" th:src="${product.getProduct().getImagePath()}">
+                <p th:text="${product.getProduct().getName()}"></p>
+                <p th:text="${product.getProduct().getDescription()}"></p>
+                <p th:text="${product.getProduct().getPrice()}"></p>
+                <p th:text="${product.getQuantity()}"></p>
+            </div>
+        </a>
+        <form th:method="POST" th:action="@{/shop/cart/update/{id}(id=${product.getId()})}" th:object="${product}">
+            <label for="quantity">Quantity:</label>
+            <input type="number" name="quantity" min="1" max="10" id="quantity">
+            <input type="submit" value="Edit">
+        </form>
+        <form th:method="DELETE" th:action="@{/shop/cart/delete/{id}(id=${product.getId()})}" th:object="${product}">
+            <input type="submit" value="Delete item from cart">
+        </form>
+    </div>
 </body>
 </html>

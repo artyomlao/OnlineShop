@@ -3,11 +3,11 @@ package onlineshop.model;
 import javax.persistence.*;
 
 @Entity
-@Table(name = "orderproduct")
-public class OrderProduct {
+@Table(name = "cartproduct")
+public class CartProduct {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Integer id;
+    private int id;
 
     @ManyToOne
     @JoinColumn(name = "productId", referencedColumnName = "id")
@@ -17,8 +17,17 @@ public class OrderProduct {
     private int quantity;
 
     @ManyToOne
-    @JoinColumn(name = "orderListId", referencedColumnName = "id")
-    private OrderList orderList;
+    @JoinColumn(name = "cartId", referencedColumnName = "id")
+    private Cart cart;
+
+    public CartProduct() {
+    }
+
+    public CartProduct(Product product, int quantity, Cart cart) {
+        this.product = product;
+        this.quantity = quantity;
+        this.cart = cart;
+    }
 
     public int getId() {
         return id;
@@ -44,11 +53,11 @@ public class OrderProduct {
         this.quantity = quantity;
     }
 
-    public OrderList getOrder() {
-        return orderList;
+    public Cart getCart() {
+        return cart;
     }
 
-    public void setOrder(OrderList orderList) {
-        this.orderList = orderList;
+    public void setCart(Cart cart) {
+        this.cart = cart;
     }
 }
