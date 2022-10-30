@@ -7,7 +7,7 @@ import java.util.List;
 @Table(name = "orderList")
 public class OrderList {
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @GeneratedValue
     private Integer id;
 
     @ManyToOne
@@ -17,7 +17,17 @@ public class OrderList {
     @OneToMany(mappedBy = "orderList")
     private List<OrderProduct> orderProducts;
 
-    public int getId() {
+    public void setId(Integer id) {
+        this.id = id;
+    }
+
+    public OrderList() {}
+
+    public OrderList(User user) {
+        this.user = user;
+    }
+
+    public Integer getId() {
         return id;
     }
 

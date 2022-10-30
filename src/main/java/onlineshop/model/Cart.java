@@ -15,7 +15,7 @@ public class Cart {
     @JoinColumn(name = "userId", referencedColumnName = "id")
     private User user;
 
-    @OneToMany(mappedBy = "cart", cascade = CascadeType.ALL)
+    @OneToMany(mappedBy = "cart", cascade = CascadeType.ALL, orphanRemoval = true)
     private List<CartProduct> cartProducts;
 
     public Cart(User user) {
@@ -26,11 +26,11 @@ public class Cart {
 
     }
 
-    public int getId() {
+    public Integer getId() {
         return id;
     }
 
-    public void setId(int id) {
+    public void setId(Integer id) {
         this.id = id;
     }
 
@@ -42,11 +42,11 @@ public class Cart {
         this.user = user;
     }
 
-    public List<CartProduct> getOrderProducts() {
+    public List<CartProduct> getCartProducts() {
         return cartProducts;
     }
 
-    public void setOrderProducts(List<CartProduct> cartProducts) {
+    public void setCartProducts(List<CartProduct> cartProducts) {
         this.cartProducts = cartProducts;
     }
 

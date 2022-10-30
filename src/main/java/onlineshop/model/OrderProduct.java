@@ -20,7 +20,16 @@ public class OrderProduct {
     @JoinColumn(name = "orderListId", referencedColumnName = "id")
     private OrderList orderList;
 
-    public int getId() {
+    public OrderProduct() {
+    }
+
+    public OrderProduct(Product product, int quantity, OrderList orderList) {
+        this.product = product;
+        this.quantity = quantity;
+        this.orderList = orderList;
+    }
+
+    public Integer getId() {
         return id;
     }
 
