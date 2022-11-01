@@ -6,6 +6,7 @@ import onlineshop.model.User;
 import onlineshop.repository.CartRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.util.Collections;
 
@@ -36,8 +37,10 @@ public class CartService {
         return cartRepository.findById(id).orElseThrow(() -> new CartDoesNotExist("Cart doesn't exist"));
     }
 
+    @Transactional
     public void deleteCart(Cart cart) {
         cart.getCartProducts().removeIf(c -> c.getCart().getId().equals(cart.getId()));
-        cartRepository.deleteById(cart.getId());
+//       cartRepository.delete(cart);
+// dont work
     }
 }

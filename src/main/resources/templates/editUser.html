@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>User</title>
+    <link rel="stylesheet" th:href="@{/style.css}">
+</head>
+<body>
+    <form th:method="POST" th:action="@{/admin/managing/edit/{id}(id=${userDTO.getId()})}" th:object="${userDTO}">
+        <input type="text" th:field="*{name}" name="email">
+        <p name="password" th:text="*{password}"></p>
+        <select th:field="*{status}" name="status">
+            <option value="ACTIVE">ACTIVE</option>
+            <option value="BANNED">BANNED</option>
+        </select>
+        <select th:field="*{role}" name="role">
+            <option value="USER">USER</option>
+            <option value="ADMIN">ADMIN</option>
+        </select>
+        <input th:field="*{email}" type="text" name="name">
+        <input type="submit" value="Изменить">
+    </form>
+    <form th:method="DELETE" th:action="@{/admin/managing/delete/{id}(id=${userDTO.getId()})}">
+        <input type="submit" value="Удалить">
+    </form>
+</body>
+</html>

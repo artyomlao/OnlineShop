@@ -16,20 +16,6 @@
             </ul>
         </nav>
     </div>
-<!--    <div class="container">-->
-<!--        <div class="small-container">-->
-<!--            <img class="img-size" th:src="@{/laptop.png}">-->
-<!--            <p>Laptop</p>-->
-<!--        </div>-->
-<!--        <div class="small-container">-->
-<!--            <img class="img-size" th:src="@{/microwave.png}">-->
-<!--            <p>Microwave</p>-->
-<!--        </div>-->
-<!--        <div class="small-container">-->
-<!--            <img class="img-size" th:src="@{/phone.png}">-->
-<!--            <p>Phone</p>-->
-<!--        </div>-->
-<!--    </div>-->
     <div th:each="product : ${products}" class="container">
         <a th:href="@{/shop/products/{id}(id=${product.getId()})}">
             <div class="small-container">

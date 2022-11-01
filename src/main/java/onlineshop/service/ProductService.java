@@ -20,6 +20,10 @@ public class ProductService {
         return productRepository.findAll();
     }
 
+    public Product addProduct(Product product) {
+        return productRepository.save(product);
+    }
+
     public Product findById(Integer id){
         return productRepository.findById(id).get();
     }

@@ -1,10 +1,21 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" xmlns:th="http://thymeleaf.org">
 <head>
-  <meta charset="UTF-8">
-  <title>$Title$</title>
+    <meta charset="UTF-8">
+    <title>AddProduct</title>
+    <link rel="stylesheet" th:href="@{/style.css}">
 </head>
 <body>
-$END$
+    <form th:method="POST" th:action="@{/admin/addProduct}" th:object="${productDTO}">
+        <label for="name">Enter product name:</label>
+        <input type="text" name="name" id="name">
+        <label for="description">Enter description:</label>
+        <input type="text" name="description" id="description">
+        <label for="imagePath">Enter product's price:</label>
+        <input type="text" name="price" id="price">
+        <label for="imagePath">Enter picture's path (after /templates):</label>
+        <input type="text" name="imagePath" id="imagePath">
+        <input type="submit" value="Сохранить!"/>
+    </form>
 </body>
 </html>

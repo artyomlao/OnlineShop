@@ -16,10 +16,20 @@ public class Product {
     private String description;
 
     @Column
-    private int price;
+    private Integer price;
 
     @Column(name = "imagePath")
     private String imagePath;
+
+    public Product() {
+    }
+
+    public Product(String name, String description, String imagePath, Integer price) {
+        this.name = name;
+        this.description = description;
+        this.imagePath = imagePath;
+        this.price = price;
+    }
 
     public Integer getId() {
         return id;
@@ -45,11 +55,11 @@ public class Product {
         this.description = description;
     }
 
-    public int getPrice() {
+    public Integer getPrice() {
         return price;
     }
 
-    public void setPrice(int price) {
+    public void setPrice(Integer price) {
         this.price = price;
     }
 

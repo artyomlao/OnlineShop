@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Managing</title>
+    <link rel="stylesheet" th:href="@{/style.css}">
+</head>
+<body>
+    <div th:each="user : ${users}" class="container">
+        <a th:href="@{/admin/managing/edit/{id} (id=${user.getId()})}">
+            <div class="small-container">
+                <p th:text="${user.getEmail()}"></p>
+                <p th:text="${user.getPassword()}"></p>
+                <p th:text="${user.getName()}"></p>
+                <p th:text="${user.getRole()}"></p>
+                <p th:text="${user.getStatus()}"></p>
+            </div>
+        </a>
+    </div>
+</body>
+</html>
