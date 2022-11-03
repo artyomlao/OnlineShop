@@ -7,15 +7,20 @@
 </head>
 <body>
     <form method = "post" th:action="@{/shop/login}" th:object="${userAuthDTO}">
+        <div th:if="${param.error}">
+            <div class="alert alert-danger">
+                <span th:text="#{login.error}"></span>
+            </div>
+        </div>
         <label for="email">Введите ваше имя:</label>
         <input type="text" name="username" id="email"/>
-    <!--    <div style="color:red" th:if="${#fields.hasErrors('email')}" th:errors="*{email}">Ошибка в логине</div>-->
+<!--        <div style="color:red" th:if="${#fields.hasErrors('username')}" th:errors="*{username}">Ошибка в логине</div>-->
         <br/>
         <label for="password">Введите ваш пароль:</label>
         <input type="text" name="password" id="password"/>
+<!--        <div style="color:red" th:if="${#fields.hasErrors('password')}" th:errors="*{password}">Ошибка в пароле</div>-->
         <br/>
         <input type="submit" value="Войти!"/>
-    <!--    <div style="color:red" th:if="${#fields.hasErrors('password')}" th:errors="*{password}">Ошибка в пароле</div>-->
     </form>
     <a href="/shop/registration">Регистрация</a>
 </body>

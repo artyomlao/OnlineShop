@@ -87,7 +87,7 @@ public class CartController {
         String email = SecurityContextHolder.getContext().getAuthentication().getName();
         Cart cart = cartService.findCartById(cartId);
 
-        if(cart.getCartProducts().size() == 0) {
+        if (cart.getCartProducts().size() == 0) {
             System.out.println("cart is empty");
             return "redirect:/shop/products";
         } else if (cartService.checkUserId(cart, email)) {

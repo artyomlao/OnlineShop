@@ -36,7 +36,10 @@ public class ShopController {
     }
 
     @GetMapping("/login")
-    public String loginPage() {
+    public String loginPage(@RequestParam(value = "error", defaultValue = "false") boolean loginError) {
+//        if(loginError) {
+//            return "login";
+//        }
         return "login";
     }
 

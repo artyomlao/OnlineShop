@@ -35,7 +35,8 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
                 .and()
                 .formLogin()
                 .loginPage("/shop/login").permitAll()
-                .defaultSuccessUrl("/shop/home");
+                .defaultSuccessUrl("/shop/home")
+                .failureUrl("/shop/login?error=true");
     }
 
     @Bean
@@ -61,4 +62,6 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
         daoAuthenticationProvider.setUserDetailsService(userDetailsService);
         return daoAuthenticationProvider;
     }
+
+
 }
