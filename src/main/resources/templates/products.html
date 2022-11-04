@@ -18,18 +18,18 @@
     </div>
     <div th:each="product : ${products}" class="container">
         <a th:href="@{/shop/products/{id}(id=${product.getId()})}">
-            <div class="small-container">
-                <img class="img-size" th:src="${product.getImagePath()}">
-                <p th:text="${product.getName()}"></p>
-                <p th:text="${product.getDescription()}"></p>
-                <p th:text="${product.getPrice()}"></p>
-            </div>
+            <img class="img-size" th:src="${product.getImagePath()}">
         </a>
-        <form th:method="POST" th:action="@{/shop/products/add/{id}(id=${product.getId()})}" th:object="${product}">
-            <label for="quantity">Quantity:</label>
-            <input type="number" name="quantity" min="1" max="10" id="quantity">
-            <input type="submit" value="Add to cart">
-        </form>
+        <div class="products-container">
+            <p th:text="${product.getName()}"></p>
+            <p th:text="${product.getDescription()}"></p>
+            <p th:text="${product.getPrice()}"></p>
+            <form th:method="POST" th:action="@{/shop/products/add/{id}(id=${product.getId()})}" th:object="${product}">
+                <label for="quantity">Quantity:</label>
+                <input type="number" name="quantity" min="1" max="10" id="quantity">
+                <input type="submit" value="Add to cart">
+            </form>
+        </div>
     </div>
 </body>
 </html>

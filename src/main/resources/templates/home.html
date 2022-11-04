@@ -4,22 +4,24 @@
     <meta charset="UTF-8">
     <link rel="stylesheet" th:href="@{/style.css}">
     <title>Main page</title>
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+<!--    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">-->
 </head>
 <body>
-    <div class="wrapper">
-        <nav>
-            <ul>
-                <li><a href="/shop/home">Home</a></li>
-                <li><a href="/shop/products">Products</a></li>
-                <li><a href="/shop/account">Account</a></li>
-                <li><a href="/shop/credits">Credits</a></li>
-                <li>
-                    <a href="/shop/cart">
-                        <img th:src="@{/pic/cart.png}" width="40px" height="40px">
-                    </a></li>
-            </ul>
-        </nav>
+    <div class="main-wrapper">
+        <div class="wrapper">
+            <nav>
+                <ul>
+                    <li><a href="/shop/home">Home</a></li>
+                    <li><a href="/shop/products">Products</a></li>
+                    <li><a href="/shop/account">Account</a></li>
+                    <li><a href="/shop/credits">Credits</a></li>
+                    <li>
+                        <a href="/shop/cart">
+                            <img th:src="@{/pic/cart.png}" width="40px" height="40px">
+                        </a></li>
+                </ul>
+            </nav>
+        </div>
     </div>
 </body>
 </html>
