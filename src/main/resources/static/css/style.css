@@ -2,6 +2,7 @@ body {
     background-repeat: no-repeat;
     background-size: cover;
     background-image: url("/pic/back.png");
+    margin: 0px;
 }
 
 .main-wrapper {
@@ -35,13 +36,14 @@ a {
 }
 
 
-.wrapper {
-    width: 1600px;
-    margin: 2% auto;
-    padding : 10px;
-    border-radius : 20px;
+.wrapper-header {
+    width: 100%;
     box-shadow: 0 0 17px rgb(25, 24, 24);
-    background-color: rgba(0,0,0,0.23);
+    background-color: rgb(0, 0, 0);
+}
+
+.products-container p {
+    margin-left: 20px;
 }
 
 p {
@@ -66,13 +68,10 @@ p {
 }
 
 .container {
-    max-width: 1080px;
     margin: auto;
     padding-left: 25px;
     padding-right: 25px;
-    display: inline-block;
-    justify-content: space-around;
-    flex-wrap: wrap;
+    display: flex;
     align-items: center;
 }
 
@@ -91,6 +90,7 @@ p {
 
 .products-container {
     display: flex;
+    flex-direction: column;
 }
 
 .img-size {
