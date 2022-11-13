@@ -3,20 +3,24 @@
 <head>
     <meta charset="UTF-8">
     <title>Products</title>
-    <link rel="stylesheet" th:href="@{/style.css}">
+    <link rel="stylesheet" th:href="@{/css/style.css}">
 </head>
 <body>
-    <div class="wrapper">
+    <div class="wrapper-header">
         <nav>
             <ul>
-                <li><a href="/shop/home">Home</a></li>
-                <li><a href="/shop/products">Products</a></li>
-                <li><a href="/shop/account">Account</a></li>
-                <li><a href="/shop/credits">Credits</a></li>
+                <li><a class="ref-text" href="/shop/home">Home</a></li>
+                <li><a class="ref-text" href="/shop/products">Products</a></li>
+                <li><a class="ref-text" href="/shop/account">Account</a></li>
+                <li><a class="ref-text" href="/shop/credits">Credits</a></li>
+                <li>
+                    <a href="/shop/cart">
+                        <img th:src="@{/pic/cart.png}" width="40px" height="40px">
+                    </a></li>
             </ul>
         </nav>
     </div>
-    <div th:each="product : ${products}" class="container">
+    <div th:each="product : ${products}" class="products-container-with-img">
         <a th:href="@{/shop/products/{id}(id=${product.getId()})}">
             <img class="img-size" th:src="${product.getImagePath()}">
         </a>

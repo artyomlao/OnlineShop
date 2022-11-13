@@ -3,6 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <title>Регистрация</title>
+    <link rel="stylesheet" th:href="@{/css/style.css}">
 </head>
 <body>
 <form th:method = "POST" th:action="@{/shop/registration}" th:object="${userDTO}">
